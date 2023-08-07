@@ -14,6 +14,7 @@ import { Platform } from "../hooks/useGames";
 import { IconType } from "react-icons";
 
 interface Props {
+  /*A prop 'platforms' for receiving the 'Platform array'*/
   platforms: Platform[];
 }
 
@@ -33,6 +34,11 @@ const PlatformIconList = ({ platforms }: Props) => {
     <HStack marginY={1}>
       {platforms.map((platform) => (
         <Icon as={iconMap[platform.slug]} color="gray.500" />
+        /*Iterate over every element and for each element in the platforms array (from 'Platform'), */
+        /*and in a variable called 'platform', store each current iteration*/
+        /*and use it's slug property (pc, mac, ios etc) to pass the required value for the 'as'prop*/
+        /*Use the iconmap function to get the correct value to be passed into the 'as' prop (from chakra UI)*/
+        /*'platform' iterator variable -> 'platforms' variable/array -> 'Platform' array -> 'Platform[]' interface for collecting the game's platform metadata*/
       ))}
     </HStack>
   );

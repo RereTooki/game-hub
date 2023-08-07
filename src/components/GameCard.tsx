@@ -1,9 +1,12 @@
 import React from "react";
 import { Game } from "../hooks/useGames";
-import { Card, CardBody, Heading, Image, Text } from "@chakra-ui/react";
+import { Card, CardBody, HStack, Heading, Image, Text } from "@chakra-ui/react";
 import PlatformIconList from "./PlatformIconList";
+import CriticScore from "./CriticScore";
 
 interface Props {
+  /*A prop 'game' for receiving the game object 'Game' which has the game: */
+  /* id, name, background_image, parent_platforms, metacritic etc*/
   game: Game;
 }
 
@@ -13,9 +16,19 @@ const GameCard = ({ game }: Props) => {
       <Image src={game.background_image} />
       <CardBody>
         <Heading fontSize="2xl">{game.name}</Heading>
-        <PlatformIconList
-          platforms={game.parent_platforms.map((p) => p.platform)}
-        />
+        <HStack justifyContent="space-between">
+          <PlatformIconList
+            platforms={game.parent_platforms.map((p) => p.platform)}
+            /*To display a horizontal list of its icons */
+            /*For each game card, get and store all its 'platforms' (icons) by using the 'game' interface*/
+            /*In the game interface, reference its parent_platforms property and iterate through each property*/
+            /*and temporarily hold it in a 'p' varialble*/
+            /*'platforms' is an object that will hold all the key-value pairs of each game (key) and it's parent_platforms (property)*/
+            /*Inside it is a function for getting all the parent_platforms of a game (then every game eventually) */
+            /*It is put inside <PlatformIconList> so that over there, each parent_platform is given its appropriate icon*/
+          />
+          <CriticScore score={game.metacritic} />
+        </HStack>
       </CardBody>
     </Card>
   );
