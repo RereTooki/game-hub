@@ -33,7 +33,7 @@ const PlatformIconList = ({ platforms }: Props) => {
   return (
     <HStack marginY={1}>
       {platforms.map((platform) => (
-        <Icon as={iconMap[platform.slug]} color="gray.500" />
+        <Icon key={platform.id} as={iconMap[platform.slug]} color="gray.500" />
         /*Iterate over every element and for each element in the platforms array (from 'Platform'), */
         /*and in a variable called 'platform', store each current iteration*/
         /*and use it's slug property (pc, mac, ios etc) to pass the required value for the 'as'prop*/
