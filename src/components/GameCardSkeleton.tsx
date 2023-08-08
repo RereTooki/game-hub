@@ -5,14 +5,12 @@ const GameCardSkeleton = () => {
   return (
     <Card
       width={{
-        sm: "465px",
+        sm: "600px" /* 465px formerly */,
         md: "350px",
         lg: "280px",
         xl: "240px",
         "2xl": "450px",
       }}
-      borderRadius={10}
-      overflow="hidden"
     >
       <Skeleton height="200px" />
       <CardBody>
